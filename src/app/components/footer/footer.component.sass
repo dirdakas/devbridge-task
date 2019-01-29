@@ -1,0 +1,66 @@
+@import ../../../styles.sass
+
+footer
+  background-color: $medium-grey
+
+  .footer-links
+    .footer-links__items
+      list-style-type: none
+      margin: 0
+      padding: 0
+
+      .footer-links__item
+        color: $white
+        display: inline
+        padding: 0 15px
+        border-right: solid 1px $white
+
+        &:first-child
+          padding-left: 0
+
+        &:last-child
+          padding-right: 0
+          border-right: none
+
+        a
+          color: inherit
+          text-decoration: inherit
+
+          &:hover, :active
+            color: $light-grey
+
+  .footer-info
+    display: flex
+
+    .footer-info__description,
+    .footer-info__title
+      display: block
+
+    .footer-info__description
+      color: $light-grey
+      flex: 0 0 85%
+
+    .footer-info__title
+      flex: 1
+      position: relative
+
+      p
+        position: absolute
+        width: 100%
+        text-align: right
+        bottom: 0
+        margin: 0
+        font-size: 30px
+        color: $white
+
+  @media screen and (max-width: $mobile-break-point)
+    .footer-links
+      .footer-links__items
+        .footer-links__item
+          display: block
+          border-right: none
+          padding: 5px 0
+          text-align: center
+
+          &:hover, &:active
+            background-color: $dark-grey
