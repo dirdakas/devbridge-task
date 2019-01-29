@@ -1,0 +1,45 @@
+<header class="main-header" [ngClass]="{ 'responsive-menu-open': isResponsiveMenuOpened }">
+    <div class="main-header__brand">
+        <a href="index.html">
+            The Site
+        </a>
+    </div>
+    <nav class="main-nav">
+        <div class="main-nav-top">
+            <ul class="main-nav-top_items">
+                <li class="main-nav-top__item">
+                    <a href="index.html">menu link 1</a>
+                </li>
+                <li class="main-nav-top__item">
+                    <a href="index.html">menu link 2</a>
+                </li>
+                <li class="main-nav-top__item">
+                    <a href="index.html">menu link 3</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-nav-bottom">
+            <ul class="main-nav-bottom_items">
+                <li class="main-nav-bottom__item dropdown">
+                    <a>menu link 1</a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+                <li class="main-nav-bottom__item">
+                    <a href="index.html">menu link 2</a>
+                </li>
+                <li class="main-nav-bottom__item">
+                    <a href="index.html">menu link 3</a>
+                </li>
+                <li class="main-nav-bottom__item">
+                    <a href="index.html">menu link 4</a>
+                </li>
+            </ul>
+        </div>
+        <a class="main-nav-burger-icon"
+           (click)="toggleBurger()">&#9776;</a>
+    </nav>
+</header>
