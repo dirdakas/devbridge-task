@@ -1,0 +1,89 @@
+@import ../../../styles.sass
+
+.top-section
+  .main-article
+    article
+      background-color: $white
+
+      h1
+        margin: 0
+        padding: 15px
+
+      p
+        margin: 0
+        padding: 0 15px 15px
+
+    .bottom-articles-wrapper
+      display: flex
+
+      .left-article,
+      .right-article
+        flex: 1
+        margin-top: 15px
+
+      .left-article
+        margin-right: 2%
+
+        p
+          margin: 0
+          padding: 15px
+
+      .right-article
+        h3
+          margin: 15px
+
+        a
+          display: block
+          text-decoration: none
+          margin: 0 15px
+
+          &:not(:first-of-type)
+            margin-top: 15px
+
+          &:not(:last-of-type)
+            border-bottom: 1px solid blue
+            padding-bottom: 15px
+
+      @media screen and (max-width: $mobile-break-point)
+        display: block
+        
+        article
+          display: inline-block
+
+          &.left-article
+            margin-right: 0
+
+          &.right-article
+            width: 100%
+
+            a:last-of-type
+              padding-bottom: 15px
+
+  aside
+    h3
+      border-bottom: 2px solid $black
+      margin: 0
+      padding-bottom: 15px
+  
+  @media screen and (min-width: $article-break-point)
+    display: flex
+    
+    .main-article
+      flex: 3
+      margin-right: 15px
+
+    aside
+      flex: 1
+
+.bottom-section
+  background-color: $medium-grey
+
+  article
+    padding: 0 15px
+
+  @media screen and (min-width: $mobile-break-point)
+    display: flex
+
+    article
+      flex: 1
+  
