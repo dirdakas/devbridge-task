@@ -64,7 +64,73 @@
       border-bottom: 2px solid $black
       margin: 0
       padding-bottom: 15px
+
+    .comment-form
+      padding: 15px
+      border: 1px solid $black
+
+      label
+        color: $black
+        font-weight: 600
+
+      .form-group
+        .input-group
+          width: 200px
+          margin: 0 auto
+          padding: 5px 0 10px
+
+          input
+            width: 100%
+
+          textarea
+            resize: none
+            width: 100%
+            min-height: 200px
+
+          .input-group-addon
+            padding-bottom: 5px
+            text-align: left
+
+          .form-control
+            &:focus, &:active
+              outline: 2px solid $light-blue
+            
+            &.invalid 
+              outline: 2px solid $dark-red
+
+        .error-messages
+          width: 300px
+          margin: 0 auto
+          font-weight: 600
+          margin-bottom: 5px
+          list-style-type: none
+
+          li
+            background-color: $light-red
+            color: $dark-red
+            margin-bottom: 5px
+            padding: 5px
+
+      .submit-button
+        width: 100px
+        height: 30px
+        font-weight: 600
+        margin: 0 auto
+        display: block
+        background-color: $strong-pink
+        color: $white
+        border: none
   
+    .submit-success
+      p
+        color: $dark-green
+        background-color: $light-green
+        padding: 15px
+        width: 250px
+        font-weight: 600
+        text-align: center
+        margin: 0 auto
+
   @media screen and (min-width: $article-break-point)
     display: flex
     

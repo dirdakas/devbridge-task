@@ -23,7 +23,95 @@
     <aside>
         <h3 title="Side form title">Lorem ipsum aenean iaculis elementum volutpat placerat</h3>
         <p>Lorem ipsum scelerisque habitant varius mi hac elementum adipiscing commodo, dui sed pretium gravida inceptos netus lacinia hac mauris himenaeos, integer gravida lacus arcu vitae vulputate torquent hendrerit orci felis libero mauris dictum pretium dictum convallis mauris ultrices .</p>
-        <form></form>
+        <form *ngIf="!isSubmitted"
+              name="commentForm"
+              class="comment-form"
+              autocomplete="off"
+              (ngSubmit)="commentForm.form.valid && submitForm()"
+              #commentForm="ngForm">
+            <div class="form-group" [ngClass]="{ 'has-error': firstName.errors && commentForm.submitted }">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label class="control-label" for="firstName">
+                            First name:
+                        </label>
+                    </div>
+                    <input type="text"
+                           class="form-control"
+                           id="firstName"
+                           name="firstName"
+                           placeholder="Enter your name"
+                           minlength="{{ inputMinLength }}"
+                           maxlength="{{ inputMaxLength }}"
+                           required
+                           [(ngModel)]="commentModel.firstName"
+                           [ngClass]="{ 'invalid': firstName.errors && commentForm.submitted }"
+                           #firstName="ngModel" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label class="control-label" for="lastName">
+                            Last name:
+                        </label>
+                    </div>
+                    <input type="text"
+                            class="form-control"
+                            id="lastName"
+                            name="lastName"
+                            placeholder="Enter your last name"
+                            minlength="{{ inputMinLength }}"
+                            maxlength="{{ inputMaxLength }}"
+                            required
+                            [(ngModel)]="commentModel.lastName"
+                            [ngClass]="{ 'invalid': lastName.errors && commentForm.submitted }"
+                            #lastName="ngModel" />
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label class="control-label" for="message">
+                            Message:
+                        </label>
+                    </div>
+                    <textarea
+                        type="text"
+                        class="form-control"
+                        id="comment"
+                        name="comment"
+                        placeholder="Enter your message"
+                        minlength="{{ textAreaMinLength }}"
+                        maxlength="{{ textAreaMaxLength }}"
+                        required
+                        [(ngModel)]="commentModel.message"
+                        [ngClass]="{ 'invalid': message.errors && commentForm.submitted }"
+                        #message="ngModel">
+                    </textarea>
+                </div>
+                <ul *ngIf="!commentForm.valid && commentForm.submitted" class="error-messages">
+                    <li *ngIf="commentForm.form.controls.firstName?.errors?.required">
+                        First name is <i>required</i>
+                    </li>
+                    <li *ngIf="commentForm.form.controls.firstName?.errors?.minlength">
+                        First name should be between <i>{{ inputMinLength }}</i> to <i>{{ inputMaxLength }}</i> symbols
+                    </li>
+                    <li *ngIf="commentForm.form.controls.lastName?.errors?.required">
+                        Last name is <i>required</i>
+                    </li>
+                    <li *ngIf="commentForm.form.controls.lastName?.errors?.minlength">
+                        Last name should be between <i>{{ inputMinLength }}</i> to <i>{{ inputMaxLength }}</i> symbols
+                    </li>
+                    <li *ngIf="commentForm.form.controls.comment?.errors?.required">
+                        Comment is <i>required</i>
+                    </li>
+                    <li *ngIf="commentForm.form.controls.comment?.errors?.minlength">
+                        Comment should be between <i>{{ textAreaMinLength }}</i> to <i>{{ textAreaMaxLength }}</i> symbols
+                    </li>
+                </ul>
+            </div>
+            <button class="submit-button" type="submit">Submit</button>
+        </form>
+        <div *ngIf="isSubmitted" class="submit-success">
+            <p>Thanks for submittion</p>
+        </div>
     </aside>
 </section>
 <section class="bottom-section">
